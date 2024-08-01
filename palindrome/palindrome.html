@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <script>
+        function myFunction(value){
+            document.getElementById('result').innerHTML = 'empty for now'
+
+            cleanValue = value.replace(/[^a-zA-Z0-9]/g, '');
+            cleanValue = cleanValue.toLowerCase()
+            
+            if (cleanValue == ""){  
+                document.getElementById('result').innerHTML = 'please input a value' //change this to an alert
+                return alert("Please input a value")
+            }else if (cleanValue.length ==    1){
+                document.getElementById('result').innerHTML = value+' is a palindrome'
+            }else if (cleanValue == cleanValue.split("").reverse("").join("")){
+                document.getElementById('result').innerHTML = value+' is a palindrome'
+            }else{
+                document.getElementById('result').innerHTML = value+' is not a palindrome'
+            }
+        }
+    </script>
+
+    <input id="text-input" type="text" />
+
+    <button type = "button" id = "check-btn" onclick = "myFunction(document.getElementById('text-input').value)">check</button>
+
+    <div id = "result"></div>
+</body>
+</html>
